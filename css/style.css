@@ -1,0 +1,25 @@
+.icons-container{
+    background-color: #ddd;
+}
+
+.icon-content {
+    flex-basis: calc(100% / 5);
+    height: 100px;
+    margin: 15px 0 ;
+}
+
+.icon-content-inside{
+    background-color: rgb(253, 252, 252);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+.icon{
+    font-size: 22px;
+}
+
+.name-icon{
+    text-transform: uppercase;
+}
