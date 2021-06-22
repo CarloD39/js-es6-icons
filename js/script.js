@@ -98,8 +98,47 @@ const icons = [
 ];
 
 
+//Creiamo una select con i tipi di icone e usiamola per filtrare le icone ===>>> 
+//===>>> con un funzione che filtra l'array (di oggetti) originale e che ritorna un NUOVO array
+// a seconda della scelta (del type).
+
+// Return a value that coerces to true to keep the element, or to false otherwise.
+
+/**
+ * a seconda della scelta (del type).
+ * 
+ * @param {*} choice ['all', 'user', 'vegetable', 'user'];
+ * @param {*} orginList 
+ */
+function filterIcons (choice, orginList) {
+
+    return orginList.filter((icon) => {
+
+        if(choice === 'all'){
+            return true
+        }
+
+        if(choice === icon.type){
+            return true;
+        }
+
+        return false;
+    })
+}
+
+
+
+
+const filteredIcons = filterIcons('all', icons);
+
+
 // Partendo dalla seguente struttura dati ,
 // mostriamo in pagina tutte le icone disponibili come da layout.
+//Attreverso un forEach.
+
+
+// Coloriamo le icone per tipo con l'aggiunta del ${type},(linea 117),
+// andando a definirla poi nel css.
 
 const HtmlContainer = document.querySelector('.icons-box');
 
@@ -122,3 +161,11 @@ icons.forEach((icon) => {
 
     `
 });
+
+//--------------------------------------//
+
+
+
+
+
+
