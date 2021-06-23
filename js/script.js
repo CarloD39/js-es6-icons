@@ -98,6 +98,8 @@ const icons = [
 ];
 
 
+const HtmlContainer = document.querySelector('.icons-box');
+
 //Creiamo una select con i tipi di icone e usiamola per filtrare le icone ===>>> 
 //===>>> con un funzione che filtra l'array (di oggetti) originale e che ritorna un NUOVO array
 // a seconda della scelta (del type).
@@ -126,11 +128,7 @@ function filterIcons (choice, orginList) {
     })
 }
 
-
-
-
-const filteredIcons = filterIcons('all', icons);
-
+//------------------------------
 
 // Partendo dalla seguente struttura dati ,
 // mostriamo in pagina tutte le icone disponibili come da layout.
@@ -140,29 +138,44 @@ const filteredIcons = filterIcons('all', icons);
 // Coloriamo le icone per tipo con l'aggiunta del ${type},(linea 117),
 // andando a definirla poi nel css.
 
-const HtmlContainer = document.querySelector('.icons-box');
+function displayIcons (filter){
 
+    const iconsFiltered = filterIcons(filter, icons);
 
-icons.forEach((icon) => {
+    HtmlContainer.innerHTML = '';
 
-    const{name, prefix, family, type} = icon;
+    iconsFiltered.forEach((icon) => {
 
-    HtmlContainer.innerHTML += `
-        <div class="icon-content col">
-            <div class="icon-content-inside">
-                <div class="icon ${type}">
-                    <i class="${family} ${prefix}${name}"></i>
-                </div>
-                <div class="name-icon">
-                    ${name}
+        const{name, prefix, family, type} = icon;
+
+        HtmlContainer.innerHTML += `
+            <div class="icon-content col">
+                <div class="icon-content-inside">
+                    <div class="icon ${type}">
+                        <i class="${family} ${prefix}${name}"></i>
+                    </div>
+                    <div class="name-icon">
+                        ${name}
+                    </div>
                 </div>
             </div>
-        </div>
 
-    `
-});
+        `
+    });
+
+}
 
 //--------------------------------------//
+displayIcons('all');
+
+//con event.target.value si recupera il valore della type-choice da noi selezionata
+
+const typeSelect = document.querySelector('.type-choice');
+
+typeSelect.addEventListener('change', (event) => {
+
+    displayIcons(event.target.value);
+})
 
 
 
