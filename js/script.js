@@ -135,7 +135,7 @@ function filterIcons (choice, orginList) {
 //Attreverso un forEach.
 
 
-// Coloriamo le icone per tipo con l'aggiunta del ${type},(linea 117),
+// Coloriamo le icone per tipo con l'aggiunta del ${type},(linea 154),
 // andando a definirla poi nel css.
 
 function displayIcons (filter){
