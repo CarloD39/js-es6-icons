@@ -149,7 +149,7 @@ function displayIcons (filter){
         const{name, prefix, family, type} = icon;
 
         HtmlContainer.innerHTML += `
-            <div class="icon-content col">
+            <div class="icon-content col-4 col-sm-4 col-md-4 col-lg-4">
                 <div class="icon-content-inside">
                     <div class="icon ${type}">
                         <i class="${family} ${prefix}${name}"></i>
